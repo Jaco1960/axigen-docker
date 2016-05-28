@@ -9,10 +9,10 @@ RUN wget https://www.axigen.com/usr/files/axigen-10.0.0/axigen-10.0.0.amd64.deb.
 # copy expect file for axigen installer
 COPY files/install-axigen.exp /
 
-# install axigen with default settings
+# install axigen with default settings and set to start at boot
 # 	admin password 		= admin
 # 	postmaster password = postmaster
-RUN export TERM=xterm & chmod +x /install-axigen.exp && /install-axigen.exp
+RUN export TERM=xterm & chmod +x /install-axigen.exp && /install-axigen.exp && update-rc.d axigen defaults
 
 # Cleanup
 RUN rm /install-axigen.exp
