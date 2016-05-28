@@ -12,7 +12,7 @@ COPY files/install-axigen.exp /
 # install axigen with default settings
 # 	admin password 		= admin
 # 	postmaster password = postmaster
-RUN chmod +x /install-axigen.exp && /install-axigen.exp
+RUN export TERM=xterm & chmod +x /install-axigen.exp && /install-axigen.exp
 
 # Cleanup
 RUN rm /install-axigen.exp
