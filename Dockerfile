@@ -21,7 +21,7 @@ RUN rm /install-axigen.exp
 EXPOSE 25 110 143 993 995 9000 80 7000
 
 # start the service
-#ENTRYPOINT 
+CMD /etc/init.d/axigen start && tail -F /var/log/dmesg
 
 
 # set mountpoint for axigen datafiles
