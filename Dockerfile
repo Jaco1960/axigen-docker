@@ -13,7 +13,7 @@ COPY files/start-axigen.sh /usr/local/bin/
 # install axigen with default settings and set to start at boot
 # 	admin password 		= admin
 # 	postmaster password = postmaster
-RUN export TERM=xterm & chmod +x /install-axigen.exp && /install-axigen.exp
+RUN export TERM=xterm && chmod +x /install-axigen.exp && chmod +x /usr/local/bin/start-axigen.sh && /install-axigen.exp
 
 # Cleanup
 RUN rm /install-axigen.exp
