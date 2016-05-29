@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y wget expect
 RUN wget https://www.axigen.com/usr/files/axigen-10.0.0/axigen-10.0.0.amd64.deb.run && chmod +x ./axigen-10.0.0.amd64.deb.run
 
 # copy expect file for axigen installer
-COPY files/install-axigen.exp / files/start-axigen.sh /usr/local/bin/
+COPY files/install-axigen.exp / 
+COPY files/start-axigen.sh /usr/local/bin/
 
 # install axigen with default settings and set to start at boot
 # 	admin password 		= admin
@@ -25,4 +26,3 @@ VOLUME ["/var/opt/axigen"]
 
 # start the service
 CMD /usr/local/bin/start-axigen.sh
-
