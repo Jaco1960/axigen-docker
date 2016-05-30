@@ -14,7 +14,7 @@ RUN cd /axigen ;\
 wget https://www.axigen.com/usr/files/axigen-10.0.0/axigen-10.0.0.amd64.deb.run ;\
 export TERM=xterm ;\
 chmod +x /axigen/* /usr/local/bin/start-axigen.sh ;\
-axigen/install-axigen.exp ;\
+/axigen/install-axigen.exp ;\
 cd / ;\
 rm -r /axigen
 
