@@ -1,22 +1,22 @@
 FROM debian
 
 # install required commands
-RUN apt-get update && apt-get install -y wget expect
+RUN apt-get update && apt-get install -y  wget expect
 
-# download axigen install script and make it executable
-RUN wget https://www.axigen.com/usr/files/axigen-10.0.0/axigen-10.0.0.amd64.deb.run && chmod +x ./axigen-10.0.0.amd64.deb.run
-
-# copy expect file for axigen installer
-COPY files/install-axigen.exp / 
-COPY files/start-axigen.sh /usr/local/bin/
+# copy files for axigen installer
+COPY axigen/ /axigen
+COPY bin/	/usr/local/bin/
 
 # install axigen with default settings and set to start at boot
 # 	admin password 		= admin
 # 	postmaster password = postmaster
-RUN export TERM=xterm && chmod +x /install-axigen.exp && chmod +x /usr/local/bin/start-axigen.sh && /install-axigen.exp
-
-# Cleanup
-RUN rm /install-axigen.exp
+RUN cd /axigen ;\
+wget https://www.axigen.com/usr/files/axigen-10.0.0/axigen-10.0.0.amd64.deb.run ;\
+export TERM=xterm ;\
+chmod +x /axigen/* /usr/local/bin/start-axigen.sh ;\
+/install-axigen.exp ;\
+cd / ;\
+rm -r /axigen
 
 #expose required ports for SMTP, POP3, IMAP, POP3S, IMAPS, WebAdmin, Webmail and CLI
 EXPOSE 25 110 143 993 995 9000 80 7000
@@ -24,5 +24,5 @@ EXPOSE 25 110 143 993 995 9000 80 7000
 # set mountpoint for axigen datafiles
 VOLUME ["/var/opt/axigen"]
 
-# start the service
+# cmd to start the service when the container starts
 CMD /usr/local/bin/start-axigen.sh
