@@ -25,7 +25,7 @@ EXPOSE 25 110 143 993 995 9000 80 7000
 VOLUME ["/var/axigen"]
 
 # Entrypoint for the container
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # cmd to start the service when the container starts
 CMD ["/usr/local/bin/axigen.sh"]
