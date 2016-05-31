@@ -31,6 +31,20 @@ _link() {
 }
 
 # move axigen files out of container
-_link /var/axigen  /var/opt/axigen
+_link /var/axigen/axigen_cert.pem /var/opt/axigen/axigen_cert.pem
+_link /var/axigen/axigen_dh.pem /var/opt/axigen/axigen_dh.pem
+_link /var/axigen/domains /var/opt/axigen/domains
+_link /var/axigen/filters /var/opt/axigen/filters
+_link /var/axigen/kas /var/opt/axigen/kas
+_link /var/axigen/kav /var/opt/axigen/kav
+_link /var/axigen/log /var/opt/axigen/log
+_link /var/axigen/mobile_ua.cfg /var/opt/axigen/mobile_ua.cfg
+_link /var/axigen/queue /var/opt/axigen/queue
+_link /var/axigen/reporting /var/opt/axigen/reporting
+_link /var/axigen/run /var/opt/axigen/run
+_link /var/axigen/serverData /var/opt/axigen/serverData
+_link /var/axigen/templates /var/opt/axigen/templates
+_link /var/axigen/webadmin /var/opt/axigen/webadmin
+_link /var/axigen/webmail /var/opt/axigen/webmail
 
 exec "$@"
