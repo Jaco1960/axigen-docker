@@ -13,7 +13,7 @@ COPY bin/	/usr/local/bin/
 RUN cd /axigen ;\
 wget https://www.axigen.com/usr/files/axigen-10.0.0/axigen-10.0.0.amd64.deb.run ;\
 export TERM=xterm ;\
-chmod +x /axigen/* /usr/local/bin/start-axigen.sh ;\
+chmod +x /axigen/* /usr/local/bin/axigen.sh /usr/local/bin/entrypoint.sh;\
 /axigen/install-axigen.exp ;\
 cd / ;\
 rm -r /axigen
@@ -22,7 +22,7 @@ rm -r /axigen
 EXPOSE 25 110 143 993 995 9000 80 7000
 
 # set mountpoint for axigen datafiles
-VOLUME ["/var/opt/axigen"]
+VOLUME ["/var/axigen"]
 
 # Entrypoint for the container
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
