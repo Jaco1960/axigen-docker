@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y  wget expect
 
 # copy files for axigen installer
 COPY axigen/ /axigen
-COPY bin/	/usr/local/bin/
+COPY bin/	/usr/local/bin
 
 # install axigen with default settings and set to start at boot
 # 	admin password 		= admin

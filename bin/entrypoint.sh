@@ -31,6 +31,6 @@ _link() {
 }
 
 # move axigen files out of container
-_link /var/axigen  /usr/opt/axigen
+_link /var/axigen  /var/opt/axigen
 
 exec "$@
