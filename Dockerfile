@@ -24,5 +24,8 @@ EXPOSE 25 110 143 993 995 9000 80 7000
 # set mountpoint for axigen datafiles
 VOLUME ["/var/opt/axigen"]
 
+# Entrypoint for the container
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
 # cmd to start the service when the container starts
-CMD /usr/local/bin/start-axigen.sh
+CMD ["/usr/local/bin/axigen.sh"]
